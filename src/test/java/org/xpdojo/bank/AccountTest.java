@@ -40,4 +40,15 @@ public class AccountTest {
         assertThrows(IllegalStateException.class, () -> account.withdraw(100));
 
     }
+
+    @Test
+    public void transferTo() {
+        account.deposit(100);
+        Account accountB = new Account(20);
+
+        account.transferTo(accountB, 50);
+        assertEquals(70, accountB.getBalance());
+
+
+    }
 }
